@@ -55,11 +55,11 @@ def colorize(txt: str, dyes: Dyes) -> str:
     This function colorize one string
     '''
     colorize_code = __colorize_cod(dyes.style, dyes.font_color, dyes.background_color)
-    text_colorized = colorize_code + txt + normalize_style
+    text_colorized = colorize_code + str(txt) + normalize_style
     return text_colorized
 
 # Aux Functions
-def __colorize_cod(style, font, background):
+def __colorize_cod(style, font, background) -> str:
     # Defing the cods individualy
     style = __cod_style(style)
     font = __cod_font(font)
@@ -75,7 +75,7 @@ def __colorize_cod(style, font, background):
             colorize_cod += f'{ansii_cod}m'
     return colorize_cod
 
-def __cod_font(color: str):
+def __cod_font(color: str) -> str:
     'Type of code - ANSII'
     color = __is_none(color)
     if color is not None:
@@ -85,7 +85,7 @@ def __cod_font(color: str):
         cod = None
     return cod
 
-def __cod_background(color: str):
+def __cod_background(color: str) -> str:
     'Type of code - ANSII'
     color = __is_none(color)
     if color is not None:
@@ -95,7 +95,7 @@ def __cod_background(color: str):
         cod = None 
     return cod
 
-def __cod_style(style: str):
+def __cod_style(style: str) -> str:
     'Type of code - ANSII'
     style = __is_none(style)
     if style is not None:
@@ -104,7 +104,7 @@ def __cod_style(style: str):
         cod = None 
     return cod
 
-def __is_none(param: str):
+def __is_none(param: str) -> None:
     if param == '':
         param = None
     return param
